@@ -1,151 +1,142 @@
-# Java-Project-
-Smart Queue Manager
+# **Smart Queue Manager – Java Project**
 
-A lightweight Java-based queue management system designed for service centers such as hospitals, banks, clinics, billing counters, and office helpdesks. The project demonstrates core Object-Oriented Programming concepts, clean modular design, data handling, and layered software architecture.
+A modular Java-based application designed to manage customer queues in service centers such as banks, clinics, and helpdesks. The system automates token generation, maintains a live queue using data structures, and stores served customer records through file handling.
 
-📌 Overview
+---
 
-Manual queue handling often leads to confusion, delays, and inefficiency. Smart Queue Manager offers a simple, offline, menu-driven solution to manage customers, assign tokens, track the queue flow, and store service records.
+## **📌 Overview**
 
-The system follows a three-layered architecture:
+Crowded service centers often struggle with unorganized queues. This project solves the problem by providing a simple, offline, menu-driven console application that lets staff register customers, serve them in order, and keep track of all completed services.
 
-Presentation Layer – Console-based UI for interacting with the system
+The project demonstrates core Java concepts including OOP, packages, file I/O, and queue operations.
 
-Service Layer – Core logic (queue management, token generation, reporting)
+---
 
-Data Layer – File-based record storage
+## **✨ Features**
 
-This project is ideal for coursework, demonstrations, and understanding real-world queue processing logic.
+* Customer registration with automatic token assignment
+* Queue operations using FIFO logic
+* Serve next customer
+* Display complete queue
+* Store served customer details to a file
+* Load past service history
+* Clear, menu-driven user interface
 
-✨ Features
-Functional Features
+---
 
-Customer registration with auto-generated token
+## **🧱 Technologies Used**
 
-Maintain and display the current queue
+* Java 8+
+* Object-Oriented Programming
+* Queue (LinkedList)
+* File Handling (BufferedReader, FileWriter)
+* Git & GitHub
 
-Serve next customer in real time
+---
 
-Store served customer records to file
+## **📁 Project Structure**
 
-Load previous records on startup
-
-Simple reporting of completed services
-
-Technical Features
-
-Clean OOP design
-
-Queue-based data structure (FIFO)
-
-Exception handling for invalid inputs
-
-Modular folder structure (models, services, storage)
-
-File handling (read/write service logs)
-
-🧱 Technology Stack
-
-Language: Java 8+
-
-Paradigm: Object-Oriented Programming (OOP)
-
-Data Storage: Text-based file storage (records.txt)
-
-Tools:
-
-Any Java IDE (IntelliJ, Eclipse, VS Code)
-
-Git/GitHub for version control
-
-📁 Project Structure
+```
 src/
  └── com.smartqueue
         ├── Main.java
+        │
         ├── models/
         │      ├── Customer.java
         │      └── ServiceRecord.java
+        │
         ├── services/
         │      ├── QueueManager.java
         │      ├── TokenGenerator.java
         │      └── ReportGenerator.java
+        │
         └── storage/
                └── FileHandler.java
 
-records.txt   ← generated automatically
+records.txt   ← Generated automatically when serving customers
+```
 
-🚀 How to Run the Project
-1. Clone the Repository
+---
+
+## **🚀 Running the Application**
+
+### **1. Clone the Repository**
+
+```bash
 git clone https://github.com/your-username/smart-queue-manager.git
 cd smart-queue-manager
+```
 
-2. Compile the Java Files
+### **2. Compile the Project**
+
+```bash
 javac -d out src/com/smartqueue/**/*.java
+```
 
-3. Run the Application
+### **3. Run the Application**
+
+```bash
 java -cp out com.smartqueue.Main
+```
 
-4. Using the Program
+---
 
-You will see an interactive menu:
+## **🖥️ Usage**
 
+When the program starts, the following menu appears:
+
+```
 1. Add Customer
-2. Serve Next
+2. Serve Next Customer
 3. Show Queue
 4. Exit
+```
 
+### **Add Customer**
 
-Follow on-screen instructions to use the system.
+Enter name and service type → system assigns token.
 
-📄 Example Output
-=== Smart Queue Manager ===
+### **Serve Customer**
 
-1. Add Customer
-2. Serve Next
-3. Show Queue
-4. Exit
+Removes the first customer (FIFO) and logs the entry.
 
-Select: 1
-Enter Name: Rohan
-Service Type: Cash Deposit
-Token Assigned: 101
+### **Show Queue**
 
-Select: 3
-Current Queue:
- → [101] Rohan (Cash Deposit)
+Displays all customers waiting in line.
 
-🗂 Data Storage
+---
 
-All served customer information is stored in:
+## **🗂 Data Storage**
 
+All completed services are saved automatically to:
+
+```
 records.txt
+```
+
+Sample entry:
+
+```
+Token: 104 | Name: Rahul Singh | Service: Cash Deposit | Time: 2025-11-24 10:21 AM
+```
+
+---
+
+## **🧪 Testing**
+
+* Validated queue operations
+* Tested file read/write
+* Checked handling of empty queue
+* Verified menu input and error messages
+
+---
+
+## **📈 Future Enhancements**
+
+* Priority queues
+* Multi-counter support
+* JavaFX GUI
+* Login system
+* PDF-based reporting
 
 
-Example entry:
-
-Token: 101 | Name: Rohan | Service: Cash Deposit | Time: 2025-11-24 10:15 AM
-
-🧪 Testing
-
-Input validation for empty names and invalid choices
-
-Queue operations manually verified
-
-File writing/reading tested across multiple runs
-
-🔧 Future Enhancements
-
-Priority Queue (elderly/pregnant customers)
-
-Multiple service counters
-
-GUI version using JavaFX
-
-Export reports as PDF
-
-Admin login system
-
-📘 License
-
-This project is intended for academic and learning purposes.
-Feel free to modify or extend it as needed.
